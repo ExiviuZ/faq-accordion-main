@@ -53,18 +53,22 @@ h1 {
   font-weight: 700;
 }
 
+picture {
+  position: absolute;
+}
+
 .bg-pattern {
   z-index: -1;
   position: absolute;
 }
 
 .faq-container {
-  margin: auto;
   background-color: hsl(0, 0%, 100%);
   padding: 2rem;
   max-width: 600px;
   width: 80%;
   border-radius: 20px;
+  margin: auto;
 }
 
 .question {

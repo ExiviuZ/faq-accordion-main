@@ -7,17 +7,27 @@ questionContainers.forEach((container) => {
   const plus = container.querySelector(".plus");
 
   question.addEventListener("click", () => {
-    questionContainers.forEach((otherContainer) => {
-      const minus = otherContainer.querySelector(".minus");
-      const plus = otherContainer.querySelector(".plus");
-      if (otherContainer !== container) {
-        otherContainer.querySelector(".answer").classList.remove("show");
-        minus.classList.remove("show");
-        plus.classList.remove("hide");
-      }
-    });
-    answer.classList.add("show");
-    minus.classList.add("show");
-    plus.classList.toggle("hide");
+    if (answer.classList.contains("show")) {
+      // Answer is already active, so close it
+      answer.classList.remove("show");
+      minus.classList.remove("show");
+      plus.classList.remove("hide");
+    } else {
+      // Close all other open answers and show current one
+      questionContainers.forEach((otherContainer) => {
+        const otherAnswer = otherContainer.querySelector(".answer");
+        const otherMinus = otherContainer.querySelector(".minus");
+        const otherPlus = otherContainer.querySelector(".plus");
+        if (otherContainer !== container) {
+          otherAnswer.classList.remove("show");
+          otherMinus.classList.remove("show");
+          otherPlus.classList.remove("hide");
+        }
+      });
+
+      answer.classList.add("show");
+      minus.classList.add("show");
+      plus.classList.toggle("hide");
+    }
   });
 });
