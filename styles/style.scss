@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
+
+// Layout
+$mobile-width: 375px;
+$desktop-width: 1440px;
+
+// Colors
+$color-white: hsl(0, 0%, 100%);
+$color-light-pink: hsl(275, 100%, 97%);
+$color-grayish-purple: hsl(292, 16%, 49%);
+$color-dark-purple: hsl(292, 42%, 14%);
+$color-light-purple: hsl(292, 42%, 44%);
+
+// Typography
+$body-font-size: 16px;
+$font-family: "Work Sans";
+$fw-400: 400;
+$fw-600: 600;
+$fw-700: 700;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    line-height: calc(1em + 0.5rem);
+}
+
+img,
+picture,
+svg,
+video,
+canvas {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    user-select: none;
+}
+
+button {
+    display: inline-block;
+    padding: 0;
+    border: none;
+    background-color: none;
+    cursor: pointer;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    background-color: $color-light-pink;
+    font-size: $body-font-size;
+    font-family: $font-family;
+    min-height: 100vh;
+}
+
+h1 {
+    display: flex;
+    font-size: 2.5rem;
+    gap: 1rem;
+    font-weight: $fw-700;
+}
+
+.bg-pattern {
+    z-index: -1;
+    position: absolute;
+}
+
+.faq-container {
+    margin: auto;
+    background-color: $color-white;
+    padding: 2rem;
+    max-width: 600px;
+    width: 80%;
+    border-radius: 20px;
+}
+.question {
+    font-weight: $fw-600;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.question:hover {
+    color: $color-light-purple;
+}
+
+.question-container:not(:last-child) {
+    padding-block: 1rem;
+    border-bottom: 1px solid $color-light-pink;
+}
+.question-container:last-child {
+    padding-block: 1rem;
+}
+
+.answer {
+    transition:
+        max-height 0.5s ease-in-out,
+        opacity 0.5s ease-in-out;
+    max-height: 0;
+    opacity: 0;
+}
+
+.answer.show {
+    opacity: 1;
+    max-height: 300px;
+}
+
+.minus {
+    display: none;
+}
+
+.minus.show {
+    display: block;
+}
+
+.plus.hide {
+    display: none;
+}
+.plus.show {
+    display: block;
+}
+
+.icons {
+    width: 48px;
+}
+
+.icons.plus,
+.icons.minus {
+    width: 30px;
+}
